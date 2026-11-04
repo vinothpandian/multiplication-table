@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Container, Row, Col, FormGroup, Label, Input } from "reactstrap";
 import Box from "./Box";
 
-const _ = require("lodash");
 
 class App extends Component {
   constructor(props) {
@@ -31,8 +30,8 @@ class App extends Component {
   }
 
   render() {
-    const boxes = _.range(10).map(value => (
-      <Box value={value} multiplicand={this.state.multiplicand} />
+    const boxes = Array.from({ length: 10 }, (_, value) => (
+      <Box key={value} value={value} multiplicand={this.state.multiplicand} />
     ));
 
     return (
